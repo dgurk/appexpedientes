@@ -1,27 +1,26 @@
 import { useState, useEffect } from "react";
 import  Error  from './Error.jsx';
 
-function Formulario({pacientes,setPacientes,paciente, setPaciente}) {
-  const [nombre, setNombre] = useState("");
-  const [propietario, setPropietario] = useState("");
-  const [email, setEmail] = useState("");
-  const [fecha, setFecha] = useState("");
-  const [sintomas, setSintomas] = useState("");
+function Formulario({expedientes,setExpedientes,expediente, setExpediente}) {
+  const [autos, setAutos] = useState("");
+  const [juzgado, setJuzgado] = useState("");
+  const [jurisdiccion, setJurisdiccion] = useState("");
+  const [fuero, setFuero] = useState("");
+  
 
   const [error, setError] = useState(false);
 
    useEffect(() => {
-     if (Object.keys(paciente).length > 0) {
+     if (Object.keys(expediente).length > 0) {
 
-      setNombre(paciente.nombre)
-      setPropietario(paciente.propietario)
-      setEmail(paciente.email)
-      setFecha(paciente.fecha)
-      setSintomas(paciente.sintomas)
-     }
+      setNombre(expediente.nombre)
+      setPropietario(expediente.propietario)
+      setEmail(expediente.email)
+      setFecha(expediente.fecha)
+      }
    
      
-   }, [paciente])
+   }, [expediente])
    
 
   const generarId = () => {
@@ -36,7 +35,7 @@ function Formulario({pacientes,setPacientes,paciente, setPaciente}) {
 
     // Validacion del formulario
 
-    if ([nombre, propietario, email, fecha, sintomas].includes("")) {
+    if ([autos,juzgado,jurisdiccion,fuero].includes("")) {
       console.log("Hay Al Menos un campo vacio");
 
       setError(true);
@@ -44,151 +43,138 @@ function Formulario({pacientes,setPacientes,paciente, setPaciente}) {
     }
     setError(false);
 
-   const objetoPaciente ={
-    nombre,
-    propietario,
-    email,
-    fecha,
-    sintomas,
+   const objetoExpediente ={
+    autos,
+    juzgado,
+    jurisdiccion,
+    fuero,
+    
+    
    
    }
 
 
-   if(paciente.id){
+   if(expediente.id){
 
-   objetoPaciente.id = paciente.id
+   objetoExpediente.id = expediente.id
 
 
-   const pacientesActualizados = pacientes.map(pacienteState => pacienteState.id === paciente.id ? objetoPaciente : pacienteState)
+   const expedientesActualizados = expedientes.map(expedienteState => expedienteState.id === expediente.id ? objetoExpediente : expedienteState)
  
-    setPacientes(pacientesActualizados)
-    setPaciente({})
+    setExpedientes(expedientesActualizados)
+    setExpediente({})
 
    }else {
-    objetoPaciente.id =generarId()
-    setPacientes([...pacientes, objetoPaciente]);
+    objetoExpediente.id =generarId()
+    setExpedientes([...expedientes, objetoExpediente]);
    }
 
     
 
 
     //Reiniciar el formulario
-    setNombre('')
-    setPropietario('')
-    setEmail('')
-    setFecha('')
-    setSintomas('')
+    setAutos('')
+    setJuzgado('')
+    setJurisdiccion('')
+    setFuero('')
+    
   };
 
   return (
     <div className="md:w-1/2 lg:w-2/5">
-      <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
+      
 
-      <p className="text-lg mt-5 text-center mb-10">
-        Añade Pacientes y {""}
-        <span className="text-indigo-600 font-bold ">Administralos</span>
-      </p>
 
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded-lg py-10 px-5 mx-5 mb-10"
       >
-        {error &&  <Error><p>odos los campos son obligatorios</p>T</Error> }
+        {error &&  <Error><p>Todos los campos son obligatorios</p></Error> }
         <div className="mb-5">
           <label
-            htmlFor="mascota"
+            htmlFor="autos"
             className="block text-gray-700 uppercase font-bold"
           >
-            Nombre Mascota
+            Autos
           </label>
 
           <input
-            id="mascota"
+            id="autos"
             type="text"
-            placeholder="Nombre de la mascota"
+            placeholder="Introduzca causa"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            value={autos}
+            onChange={(e) => setAutos(e.target.value)}
           />
         </div>
 
         <div className="mb-5">
           <label
-            htmlFor="propietario"
+            htmlFor="juzgado"
             className="block text-gray-700 uppercase font-bold"
           >
-            Nombre Propietario
+            Juzgado
           </label>
 
           <input
-            id="propietario"
+            id="juzgado"
             type="text"
-            placeholder="Nombre del Propietario"
+            placeholder="Introduzca radicación"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={propietario}
-            onChange={(e) => setPropietario(e.target.value)}
+            value={juzgado}
+            onChange={(e) => setJuzgado(e.target.value)}
           />
         </div>
 
         <div className="mb-5">
           <label
-            htmlFor="email"
+            htmlFor="jurisdiccion"
             className="block text-gray-700 uppercase font-bold"
           >
-            Email
+            Jurisdiccion
           </label>
 
           <input
-            id="email"
-            type="email"
-            placeholder="Email Contacto Propietario"
+            id="jurisdiccion"
+            type="jurisdiccion"
+            placeholder="Introduzca jurisdicción"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={jurisdiccion}
+            onChange={(e) => setJurisdiccion(e.target.value)}
           />
         </div>
 
         <div className="mb-5">
           <label
-            htmlFor="alta"
+            htmlFor="fuero"
             className="block text-gray-700 uppercase font-bold"
           >
-            Alta
+            Fuero
           </label>
 
           <input
-            id="alta"
-            type="date"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={fecha}
-            onChange={(e) => setFecha(e.target.value)}
+           id="fuero"
+           type="fuero"
+           placeholder="Introduzca fuero"
+           className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+           value={fuero}
+           onChange={(e) => setFuero(e.target.value)}
           />
         </div>
 
-        <div className="mb-5">
-          <label
-            htmlFor="sintomas"
-            className="block text-gray-700 uppercase font-bold"
-          >
-            Sintomas
-          </label>
-
-          <textarea
-            id="sintomas"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            placeholder="Describe los sintomas"
-            value={sintomas}
-            onChange={(e) => setSintomas(e.target.value)}
-          />
-        </div>
+        
 
         <input
           type="submit"
           className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-all"
-          value={paciente.id ? 'Editar paciente' : 'Agregar paciente'}
+          value={expediente.id ? 'Editar expediente' : 'Agregar expediente'}
         />
       </form>
     </div>
   );
 }
 export default Formulario;
+
+
+
+

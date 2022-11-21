@@ -2,32 +2,36 @@ import { useState, useEffect } from "react";
 
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
-import ListadoPacientes from "./components/ListadoPacientes";
+import ListadoExpedientes from "./components/ListadoExpedientes";
+//import Jurisprudencia from "./components/Jurisprudencia";
+//import Audiencias from "./components/Audiencias";
+//import {route, routes} from "react-router-dom";
 
+ 
 function App() {
-  const [pacientes, setPacientes] = useState([]);
-  const [paciente, setPaciente] = useState({});
+  const [expedientes, setExpedientes] = useState([]);
+  const [expediente, setExpediente] = useState({});
 
   useEffect(() => {
 
      const obtenerLS = () =>{
 
-      const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
+      const expedientesLS = JSON.parse(localStorage.getItem('expedientes')) ?? [];
 
-      setPacientes(pacientesLS)
+      setExpedientes(expedientesLS)
      }
      obtenerLS();
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('pacientes', JSON.stringify(pacientes));
-  }, [pacientes]);
+    localStorage.setItem('expedientes', JSON.stringify(expedientes));
+  }, [expedientes]);
 
-  const eliminarPaciente = (id) => {
-    const pacientesActualizados = pacientes.filter(
-      (paciente) => paciente.id !== id
+  const eliminarExpediente = (id) => {
+    const expedientesActualizados = expedientes.filter(
+      (expediente) => expediente.id !== id
     );
-    setPacientes(pacientesActualizados);
+    setExpediente(expedientesActualizados);
   };
 
   return (
@@ -35,19 +39,24 @@ function App() {
       <Header />
       <div className="mt-12 md:flex">
         <Formulario
-          pacientes={pacientes}
-          setPacientes={setPacientes}
-          paciente={paciente}
-          setPaciente={setPaciente}
+          expedientes={expedientes}
+          setExpedientes={setExpedientes}
+          expediente={expediente}
+          setExpediente={setExpediente}
         />
-        <ListadoPacientes
-          pacientes={pacientes}
-          setPaciente={setPaciente}
-          eliminarPaciente={eliminarPaciente}
+        <ListadoExpedientes
+          expedientes={expedientes}
+          setExpediente={setExpediente}
+          eliminarExpediente={eliminarExpediente}
         />
       </div>
     </div>
+    
   );
 }
 
 export default App;
+
+
+
+
