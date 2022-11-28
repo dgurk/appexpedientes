@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import  Error  from './Error.jsx';
 
+
 function Formulario({expedientes,setExpedientes,expediente, setExpediente}) {
   const [autos, setAutos] = useState("");
   const [juzgado, setJuzgado] = useState("");
