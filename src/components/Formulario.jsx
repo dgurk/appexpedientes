@@ -7,8 +7,6 @@ function Formulario({expedientes,setExpedientes,expediente, setExpediente}) {
   const [juzgado, setJuzgado] = useState("");
   const [jurisdiccion, setJurisdiccion] = useState("");
   const [fuero, setFuero] = useState("");
-  
-
   const [error, setError] = useState(false);
 
    useEffect(() => {
@@ -50,8 +48,6 @@ function Formulario({expedientes,setExpedientes,expediente, setExpediente}) {
     jurisdiccion,
     fuero,
     
-    
-   
    }
 
 

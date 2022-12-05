@@ -1,18 +1,20 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Audiencias from './components/Audiencias';
-import Jurisprudencia from 'components/Jurisprudencia';
-import Formulario from './components/ Formulario';
+import Navbar from './Navbar';
+import Audiencia from './Audiencia';
+import Jurisprudencia from './Jurisprudencia';
+import Formulario from './Formulario';
+import Footer from './Footer';
+
 
 
 const Home = () => {
     return (
            <>
            <Navbar />
-           <Audiencias />
+           <Audiencia />
            <Jurisprudencia />
            <Formulario />
-           
+           <Footer />
            
            
            </> 

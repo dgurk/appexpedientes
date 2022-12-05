@@ -1,13 +1,17 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import {Linkrouter as Link} from "react-router-dom";
+import {Link as LinkRouter} from 'react-router-dom';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Audiencia', to: './Audiencia', current: false },
+  { name: 'Formulario', to:'/Formulario', current: false },
+  { name: 'Jurisprudencia', to:'/Jurisprudencia', current: false },
+  { name: 'Home', to:'/Home', current: false },
+  { name: 'Footer', to:'/Footer', current: false },
+  { name: 'Comment', to:'/Comment', current: false },
+  
+  
 ]
 
 function classNames(...classes) {
