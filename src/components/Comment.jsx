@@ -1,16 +1,13 @@
 
-import React from 'react'
-import data from "../data.json"
+
+
 
 
 function Comment(props) {
   return (
     <div className="Comment">
       <div className="UserInfo">
-        <img className="Avatar"
-          src={props.author.avatarUrl}
-          alt={props.author.name}
-        />
+
         <div className="UserInfo-name">
           {props.author.name}
         </div>

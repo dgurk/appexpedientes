@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import  Error  from './Error.jsx';
 
 function Audiencia ({expedientes,setExpedientes,expediente, setExpediente}) {
-  const [nombre, setAutos] = useState("");
+  const [autos, setAutos] = useState("");
   const [fecha, setFecha] = useState("");
-  
-
   const [error, setError] = useState(false);
 
    useEffect(() => {
@@ -32,7 +30,7 @@ function Audiencia ({expedientes,setExpedientes,expediente, setExpediente}) {
 
     // Validacion del formulario
 
-    if ([nombre, fecha].includes("")) {
+    if ([autos, fecha].includes("")) {
       console.log("Hay Al Menos un campo vacio");
 
       setError(true);

@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import {Link as LinkRouter} from 'react-router-dom';
 
 const navigation = [
-  { name: 'Audiencia', to: './Audiencia', current: false },
+  { name: 'Audiencia', to: '/Audiencia', current: false },
   { name: 'Formulario', to:'/Formulario', current: false },
   { name: 'Jurisprudencia', to:'/Jurisprudencia', current: false },
   { name: 'Home', to:'/Home', current: false },
@@ -28,7 +28,7 @@ export default function Example() {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
+                  <span className="sr-only">MENU</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
@@ -52,8 +52,7 @@ export default function Example() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
+                      <LinkRouter to= {item.to} key={item.name}
                         href={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -62,7 +61,7 @@ export default function Example() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </LinkRouter>
                     ))}
                   </div>
                 </div>
@@ -80,7 +79,7 @@ export default function Example() {
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="sr-only">Open user menu</span>
+                      <span className="sr-only">ABRA EL MENU </span>
                       <img
                         className="h-8 w-8 rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -104,7 +103,7 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Your Profile
+                            Su perfil
                           </a>
                         )}
                       </Menu.Item>
@@ -114,7 +113,7 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Settings
+                            Configuracion
                           </a>
                         )}
                       </Menu.Item>
@@ -124,7 +123,7 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Sign out
+                            Salir
                           </a>
                         )}
                       </Menu.Item>

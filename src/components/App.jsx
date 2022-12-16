@@ -8,7 +8,7 @@ import Audiencia from "./Audiencia";
 import {Route, Routes} from 'react-router-dom';
 import Footer from "./Footer";
 import Comment from "./Comment";
-import Hero from "./Hero";
+
 
 function App () {
 return (
@@ -22,7 +22,6 @@ return (
         <Route path ='/Jurisprudencia' element = {<Jurisprudencia/>} />
         <Route path ='/Audiencia' element = {<Audiencia/>} />
         <Route path ='/Comment' element = {<Comment/>} />
-        <Route path ='/Hero' element = {<Hero/>} />
         <Route path ='/Header' element = {<Header/>} />
 
     </Routes>

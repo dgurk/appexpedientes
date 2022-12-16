@@ -4,7 +4,7 @@ import Audiencia from './Audiencia';
 import Jurisprudencia from './Jurisprudencia';
 import Formulario from './Formulario';
 import Footer from './Footer';
-
+import Comment from './Comment';
 
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
            <Jurisprudencia />
            <Formulario />
            <Footer />
-           
+           <Comment />
            
            </> 
 
